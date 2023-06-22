@@ -14,12 +14,14 @@ function DiceEquation(props) {
       result += Math.floor(Math.random() * props.diceFaces) + 1;
     }
     setResult(result);
+    props.setLog(
+      props.log + numberOfDice + "d" + props.diceFaces + "=" + result + "\n"
+    );
   }
 
   return (
-    <div>
+    <div className="equation-line">
       <h4>
-        {" "}
         <input
           onChange={(e) => handleEnterNumber(e.target.value)}
           value={numberOfDice}
